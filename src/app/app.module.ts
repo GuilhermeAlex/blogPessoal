@@ -10,6 +10,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { from } from 'rxjs';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { from } from 'rxjs';
     MenuComponent,
     RodapeComponent,
     EntrarComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
