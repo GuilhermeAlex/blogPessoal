@@ -8,7 +8,7 @@ const routes: Routes = [
   
   {path:'', redirectTo: 'entrar' , pathMatch: 'full'} , /*MÉTODO PARA A PAGINA INICIAL SER ENTRAR  */
 
-  {path:'entrar', component:EntrarComponent } ,
+  {path:'entrar', component: EntrarComponent} ,
   {path:'cadastrar', component: CadastrarComponent} ,
   
   {path: 'inicio', component: InicioComponent}
