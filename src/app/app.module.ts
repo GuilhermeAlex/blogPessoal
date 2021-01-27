@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common'
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import { from } from 'rxjs';
 import { InicioComponent } from './inicio/inicio.component';
+
 
 
 @NgModule({
@@ -28,7 +29,10 @@ import { InicioComponent } from './inicio/inicio.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy, /*Ajuda o Angular a não se perder nas rotas */
+    useClass: HashLocationStrategy /*Ajuda o Angular a não se perder nas rotas */
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
