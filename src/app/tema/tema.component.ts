@@ -10,12 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class TemaComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router /*Injetando a dependencia do router */
   ) { }
 
   ngOnInit() {
     if(environment.token == '') {
-      this.router.navigate(['/entrar'])
+      this.router.navigate(['/entrar']) /* serve para quando o token estiver vazio ele fechar a aba e ir pro entrar */ 
     }
   }
   

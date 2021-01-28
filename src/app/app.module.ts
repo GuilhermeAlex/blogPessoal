@@ -32,6 +32,7 @@ import { TemaComponent } from './tema/tema.component';
     FormsModule
   ],
   providers: [{
+    /*Ancoragem */ 
     provide: LocationStrategy, /*Ajuda o Angular a não se perder nas rotas */
     useClass: HashLocationStrategy /*Ajuda o Angular a não se perder nas rotas */
   }],
