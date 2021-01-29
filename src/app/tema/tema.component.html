@@ -55,8 +55,8 @@
             <th >{{item.id}}</th> <!--Mostrar o Id / o {{}} é a interpolação-->
             <td>{{item.descricao}}</td> <!--Nome do Tema-->
             <td class="d-flex justify-content-end">
-              <button class="btn btn-info mr-3">Editar</button> <!--MR =Margem a direita-->
-              <button class="btn btn-danger">Apagar</button>
+              <button class="btn btn-info mr-3" [routerLink]="['/tema-edit', item.id]">Editar</button> <!--MR =Margem a direita-->
+              <button class="btn btn-danger" [routerLink]="['/tema-delete', item.id]" >Apagar</button> <!--[routerLink]="['']" esse router link é para dar a rota de put e delete internamente-->
             </td>
           </tr>
         </tbody>
