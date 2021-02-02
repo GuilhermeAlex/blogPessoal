@@ -20,11 +20,21 @@ export class PostagemService {
   getAllPostagens(): Observable<Postagem[]> { /*O Observable serve para dar um retorno no objeto */
     return this.http.get<Postagem[]>('http://localhost:8080/postagens', this.token)
   } 
+  getByIdPostagem(id: number): Observable<Postagem>{
+    return this.http.get<Postagem>(`http://localhost:8080/postagens/${id}`, this.token)
+  }
+
   postPostagem(postagem: Postagem) : Observable<Postagem>{ /*Quando é só 1 objeto não preisa do arrey */
     return this.http.post<Postagem>('http://localhost:8080/postagens', postagem, this.token)
 
   }
-
-
+  /*operações do crud put para postagem*/
+  putPostagem(postagem: Postagem): Observable<Postagem>{
+    return this.http.put<Postagem>('http://localhost:8080/postagens', postagem, this.token)
+  }
+  /*operações do crud delete para postagem*/
+  deletePostagem(id: number){
+    return this.http.delete(`http://localhost:8080/postagens/${id}`, this.token)
+  }
 
 }
