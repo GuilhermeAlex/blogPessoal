@@ -35,6 +35,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
 
+    window.scroll(0,0)
     if(environment.token == ''){
       this.router.navigate(['/entrar']) /*estabelecendo a rota para voltar para a pagina entrar quando inspirar a seção */
     }
