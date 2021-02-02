@@ -19,7 +19,7 @@ export class TemaService {
   }
   /*operações do crud GETALL*/
   /*Arrey de Objetos temas [] */
-  getAllTema(): Observable<Tema[]>{
+  getAllTema(): Observable<Tema[]>{ /*O Observable serve para dar um retorno no objeto */
     return this.http.get<Tema[]>('http://localhost:8080/tema', this.token)
   }
   getByIdTema(id:number): Observable<Tema>{
