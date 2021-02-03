@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
+import { User } from '../model/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostagemService {
+
+  user: User = new User()
 
   constructor(
     private http: HttpClient /*Métodos http */
@@ -22,6 +25,10 @@ export class PostagemService {
   } 
   getByIdPostagem(id: number): Observable<Postagem>{
     return this.http.get<Postagem>(`http://localhost:8080/postagens/${id}`, this.token)
+  }
+  
+  getByIdUser(id: number): Observable<User>{
+    return this.http.get<User>(`http://localhost:8080/usuarios/${id}`, this.token)
   }
 
   postPostagem(postagem: Postagem) : Observable<Postagem>{ /*Quando é só 1 objeto não preisa do arrey */
