@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { User } from '../model/User';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -30,7 +31,8 @@ export class InicioComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService:  TemaService, /*Injetando o tema service */
-    private authService: AuthService   /*Injetando a dependencia do service de autenticação */
+    private authService: AuthService,   /*Injetando a dependencia do service de autenticação */
+    private alertas: AlertasService /*Injetando a dependencia do service */
   ) { }
 
   ngOnInit() {
@@ -77,7 +79,7 @@ export class InicioComponent implements OnInit {
     /*No método publicar abaixo está chamando o postagemService e passando a postagem unica */
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem =  new Postagem() /*Aqui vai limpar os campos */
       this.getAllPostagens() /*Lista todas as postagens de novo */
     })
