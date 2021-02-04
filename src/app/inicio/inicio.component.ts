@@ -26,6 +26,9 @@ export class InicioComponent implements OnInit {
   user: User = new User() 
   idUser = environment.id /*o idUser vai receber o envoironment.id do usuario */
 
+  key = 'data'
+  reverse: true /*Método para que o ultimo post apareça primeiro e o primeiro fique por ultimo */
+
 
   constructor(
     private router: Router,

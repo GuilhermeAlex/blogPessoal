@@ -10,9 +10,9 @@ export class AlertasService {
   constructor(
     private bsModalService: BsModalService
   ) { }
-    private showAlert(message: string, tipo: string){ /*Passando os parametros */
+    private showAlert(message: string, type: string){ /*Passando os parametros */
     const bsModalRef: BsModalRef = this.bsModalService.show(AlertasComponent)     /*A constante tras mais segurança para a aplicação // a const ta recebendp a modal service para mostrar o componente alertas*/
-    bsModalRef.content.type = tipo
+    bsModalRef.content.type = type
     bsModalRef.content.message = message
   }
   showAlertDanger(message: string){
@@ -25,9 +25,4 @@ export class AlertasService {
   showAlertInfo(message: string){
     this.showAlert(message, 'info')
   }
-
-
-
-
-
 }

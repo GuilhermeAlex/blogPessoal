@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+
 import {ModalModule} from 'ngx-bootstrap/modal'
+import { OrderModule } from 'ngx-order-pipe';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -43,7 +45,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot() /*for root= implementa em todo o projeto */
+    ModalModule.forRoot(), /*for root= implementa em todo o projeto */
+    OrderModule
   ],
   providers: [{
     /*Ancoragem */ 
