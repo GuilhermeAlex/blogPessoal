@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment.prod';
 export class PostagemEditComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
+  
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
