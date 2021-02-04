@@ -26,6 +26,10 @@ export class TemaService {
     return this.http.get<Tema>(`http://localhost:8080/tema/${id}`, this.token)
   }
 
+  getByNomeTema(nome: string): Observable<Tema[]>{
+    return this.http.get<Tema[]>(`http://localhost:8080/tema/nome/${nome}`, this.token)
+  }
+
   /*operação do crud Post */ 
   /*Esse tema é unicio por isso não tem  Arrey[] */
   postTema(tema: Tema): Observable<Tema>{ /*Esse Observable é de tema unico */

@@ -18,6 +18,8 @@ export class InicioComponent implements OnInit {
   
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[] /*Variavel para criar a lista de postagens do getAllPostagens */
+  tituloPost: string
+  nomeTema: string
 
   tema: Tema = new Tema /*Para trazer um tema só */
   listaTemas: Tema[]
@@ -87,5 +89,25 @@ export class InicioComponent implements OnInit {
       this.getAllPostagens() /*Lista todas as postagens de novo */
     })
   }
+  /*Nesse método é para a barra de pesquisa na parte de todas as postagens */
+  findByTituloPostagem(){
 
+    if(this.tituloPost == ''){
+      this.getAllPostagens()
+    }else{
+      this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=> {
+        this.listaPostagens = resp
+      })
+    }
+  }
+  /*Método de pesquisa nna parte de postagem por tema */
+  findByNomeTema(){
+    if(this.nomeTema == ''){
+      this.getAllTemas()
+    }else{
+      this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[])=> {
+        this.listaTemas = resp
+      })
+    }
+  }
 }
