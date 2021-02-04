@@ -3,6 +3,7 @@ import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { Tema } from '../model/Tema';
 import { TemaService } from '../service/tema.service';
+import { AlertasService } from '../service/alertas.service';
 
 @Component({
   selector: 'app-tema',
@@ -16,13 +17,19 @@ export class TemaComponent implements OnInit {
   listaTemas: Tema[] /*Vai trazer uma lista de temas */
   constructor(
     private router: Router, /*Injetando a dependencia do router */
-    private temaService: TemaService /*Injetando a dependencia do tema service */
+    private temaService: TemaService, /*Injetando a dependencia do tema service */
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
     if(environment.token == '') {
       this.router.navigate(['/entrar']) /* serve para quando o token estiver vazio ele fechar a aba e ir pro entrar */ 
     }
+     if(environment.tipo != 'adm'){
+       this.alertas.showAlertInfo('Você precisa ser Admin para acessar essa rota')
+       this.router.navigate(['/inicio'])
+     } 
+
     /*Todas as vezes que iniciar a pagina vai mostrar todos os temas */
     this.findAllTemas() 
   }
